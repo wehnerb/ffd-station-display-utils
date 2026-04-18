@@ -6,8 +6,9 @@
 # and opens a PR against its own staging branch.
 #
 # Required secret: WORKER_REPO_DISPATCH_TOKEN
-#   A fine-grained PAT with actions: write permission on all
-#   eight Worker repos. Set in this repo's Settings > Secrets.
+#   A fine-grained PAT with actions: write and contents: write
+#   permission on all eight Worker repos.
+#   Set in this repo's Settings > Secrets.
 # ============================================================
 name: Notify worker repos of updated utils
 
@@ -24,12 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout to read VERSION file
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Send repository_dispatch to all Worker repos
         env:
           GH_TOKEN: ${{ secrets.WORKER_REPO_DISPATCH_TOKEN }}
         run: |
+          VERSION=$(cat VERSION)
+          echo "Notifying worker repos of utils version $VERSION"
           REPOS=(
             "wehnerb/calendar-display"
             "wehnerb/weather-display"
@@ -44,7 +47,7 @@ jobs:
             echo "Notifying $REPO..."
             gh api repos/$REPO/dispatches \
               --method POST \
-              -f event_type=utils-updated \
-              -f client_payload='{"version":"'"$(cat VERSION)"'"}'
+              -f event_type=utils-updated
             echo "Done: $REPO"
           done
+          echo "All repos notified."
