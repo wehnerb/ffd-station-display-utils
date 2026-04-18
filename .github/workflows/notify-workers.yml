@@ -1,0 +1,50 @@
+# ============================================================
+# notify-workers.yml
+# Fires a repository_dispatch event to all eight Worker repos
+# whenever utils files or VERSION change on the staging branch.
+# Each Worker repo's sync-utils.yml workflow receives the event
+# and opens a PR against its own staging branch.
+#
+# Required secret: WORKER_REPO_DISPATCH_TOKEN
+#   A fine-grained PAT with actions: write permission on all
+#   eight Worker repos. Set in this repo's Settings > Secrets.
+# ============================================================
+name: Notify worker repos of updated utils
+
+on:
+  push:
+    branches: [staging]
+    paths:
+      - 'utils/**'
+      - 'VERSION'
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to read VERSION file
+        uses: actions/checkout@v4
+
+      - name: Send repository_dispatch to all Worker repos
+        env:
+          GH_TOKEN: ${{ secrets.WORKER_REPO_DISPATCH_TOKEN }}
+        run: |
+          REPOS=(
+            "wehnerb/calendar-display"
+            "wehnerb/weather-display"
+            "wehnerb/river-level-display"
+            "wehnerb/daily-message-display"
+            "wehnerb/probationary-firefighter-display"
+            "wehnerb/department-news-display"
+            "wehnerb/slide-timing-proxy"
+            "wehnerb/station-image-proxy"
+          )
+          for REPO in "${REPOS[@]}"; do
+            echo "Notifying $REPO..."
+            gh api repos/$REPO/dispatches \
+              --method POST \
+              -f event_type=utils-updated \
+              -f client_payload='{"version":"'"$(cat VERSION)"'"}'
+            echo "Done: $REPO"
+          done
