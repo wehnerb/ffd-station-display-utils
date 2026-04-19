@@ -16,7 +16,6 @@ on:
   push:
     branches: [staging]
     paths:
-      - 'utils/**'
       - 'VERSION'
   workflow_dispatch:
 
