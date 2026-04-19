@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.6.0 — design tokens
+- Added utils/colors.js with DARK_BG_COLOR, FONT_STACK, ACCENT_COLOR,
+  text/border/card elevation tokens
+- Added utils/layouts.js with LAYOUTS object and DEFAULT_LAYOUT
+- Added utils/alert-colors.js with NWS alert severity color sets
+- constants.js unchanged — DARK_BG_COLOR remains there until all
+  workers are migrated to import from colors.js, then it will be retired
+
 ## v0.5.0 — rotation helpers
 - Added utils/rotation.js with getTodayString, getDaysElapsed,
   getBlockIndex, getSecondsUntilNextRotation, formatHireDate
