@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.5.0 — rotation helpers
+- Added utils/rotation.js with getTodayString, getDaysElapsed,
+  getBlockIndex, getSecondsUntilNextRotation, formatHireDate
+- All functions accept parameters instead of reading module-level
+  constants, making them reusable across workers with different
+  rotation anchors and times
+- DST-safe via Intl.DateTimeFormat with America/Chicago timezone
+
 ## v0.4.0 — google-auth
 - Added utils/google-auth.js with getAccessToken
 - Accepts scope as a parameter so one function serves all Google API use cases
