@@ -1,6 +1,11 @@
 # Changelog
 
-## v0.6.0 — design tokens
+## v0.6.1 — TEXT_SUPPORTING token
+- Added TEXT_SUPPORTING = rgba(255,255,255,0.75) to colors.js
+- Mid-opacity text level between TEXT_SECONDARY and TEXT_PRIMARY
+- Used for rank text, field values, and supporting content
+
+- ## v0.6.0 — design tokens
 - Added utils/colors.js with DARK_BG_COLOR, FONT_STACK, ACCENT_COLOR,
   text/border/card elevation tokens
 - Added utils/layouts.js with LAYOUTS object and DEFAULT_LAYOUT
