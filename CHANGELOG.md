@@ -1,5 +1,8 @@
 # Changelog
 
+## - v0.6.4 - test auto delete branch
+- Test auto delete branch created on auto merge of utils updates
+
 ## v0.6.3 - update accent color
 - Update accent color to #FF0000 to match display hardware theme exactly
 
