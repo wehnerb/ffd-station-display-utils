@@ -1,6 +1,6 @@
 # Changelog
 
-## - c0.6.4 - test auto delete branch
+## - v0.6.4 - test auto delete branch
 - Test auto delete branch created on auto merge of utils updates
 
 ## v0.6.3 - update accent color
