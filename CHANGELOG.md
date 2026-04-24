@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.6.3 - update accent color
+- Update accent color to #FF0000 to match display hardware theme exactly
+
 ## v0.6.2 — retire constants.js
 - Removed DARK_BG_COLOR export from constants.js
 - All workers now import DARK_BG_COLOR from colors.js directly
