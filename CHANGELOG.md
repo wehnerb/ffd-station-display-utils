@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.6.2 — retire constants.js
+- Removed DARK_BG_COLOR export from constants.js
+- All workers now import DARK_BG_COLOR from colors.js directly
+- constants.js deleted
+
 ## v0.6.1 — TEXT_SUPPORTING token
 - Added TEXT_SUPPORTING = rgba(255,255,255,0.75) to colors.js
 - Mid-opacity text level between TEXT_SECONDARY and TEXT_PRIMARY
