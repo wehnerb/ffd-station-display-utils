@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.7.0] - 2026-05-02
+
+### Changed
+- TEXT_TERTIARY opacity bumped from 0.38 to 0.50 for improved
+  readability on wall-mounted displays viewed at distance
+- Card elevation ladder smoothed to consistent ~1.5x geometric
+  progression: RECESSED 0.03→0.04, BASE 0.06→0.07,
+  ELEVATED 0.10→0.11, HEADER 0.17→0.16
+
+### Added
+- FONT_STACK_SERIF token: Georgia, "Times New Roman", serif
+  Promoted from daily-message-display inline usage to shared token
+
+### Removed
+- constants.js fully retired — all workers now import from colors.js
+
 ## - v0.6.4 - test auto delete branch
 - Test auto delete branch created on auto merge of utils updates
 
