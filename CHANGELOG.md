@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.7.0] - 2026-05-02
+## - v0.7.0 - 2026-05-02
 
 ### Changed
 - TEXT_TERTIARY opacity bumped from 0.38 to 0.50 for improved
