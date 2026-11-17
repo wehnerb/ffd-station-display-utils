@@ -1,13 +1,13 @@
 # ============================================================
 # notify-workers.yml
-# Fires a repository_dispatch event to all eight Worker repos
+# Fires a repository_dispatch event to all nine Worker repos
 # whenever utils files or VERSION change on the staging branch.
 # Each Worker repo's sync-utils.yml workflow receives the event
 # and opens a PR against its own staging branch.
 #
 # Required secret: WORKER_REPO_DISPATCH_TOKEN
 #   A fine-grained PAT with actions: write and contents: write
-#   permission on all eight Worker repos.
+#   permission on all nine Worker repos.
 #   Set in this repo's Settings > Secrets.
 # ============================================================
 name: Notify worker repos of updated utils
@@ -41,6 +41,7 @@ jobs:
             "wehnerb/department-news-display"
             "wehnerb/slide-timing-proxy"
             "wehnerb/station-image-proxy"
+            "wehnberb/newsletter-slides-display"
           )
           for REPO in "${REPOS[@]}"; do
             echo "Notifying $REPO..."
