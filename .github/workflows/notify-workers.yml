@@ -41,7 +41,7 @@ jobs:
             "wehnerb/department-news-display"
             "wehnerb/slide-timing-proxy"
             "wehnerb/station-image-proxy"
-            "wehnberb/newsletter-slides-display"
+            "wehnerb/newsletter-slides-display"
           )
           for REPO in "${REPOS[@]}"; do
             echo "Notifying $REPO..."
